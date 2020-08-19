@@ -3,7 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-const geoCode = require('../../weather-app/utils/geocode')
+//const geoCode = require('../../weather-app/utils/geocode')
 
 const app = express() 
 // Setting up port to use either the port value provided by Heroku or local port if running on local 
@@ -55,7 +55,7 @@ app.get('/weather', (req, res) => {
             error: 'Address Must Be Provided.'
         })
     }
-    geoCode(req.query.address, (error, {latitude, longitude, location} = {} ) => {
+    geocode(req.query.address, (error, {latitude, longitude, location} = {} ) => {
         if (error){
             return res.send( {
                 error: 'An error occcured during geocoding.'
