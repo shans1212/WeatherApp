@@ -6,7 +6,8 @@ const forecast = require('./utils/forecast')
 const geoCode = require('../../weather-app/utils/geocode')
 
 const app = express() 
-
+// Setting up port to use either the port value provided by Heroku or local port if running on local 
+const port = process.env.PORT || 3000 
  
 const viewDirectory = path.join(__dirname, '../templates/views') // temeplates/views is the directory where our views are stored. Renamed views to templates.
 const partialsDirectory = path.join(__dirname, '../templates/partials') // For partials. 
@@ -110,7 +111,7 @@ app.get('*', (req,res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log("Server is up on port 3000.")
+app.listen(port, () => {
+    console.log("Server is up on port: " + port)
 })
 
