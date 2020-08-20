@@ -34,7 +34,7 @@ app.get('', (req,res) => {
 // About route
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About Me',
+        title: 'About',
         name: 'Shans121'
     })
 })
@@ -43,7 +43,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req,res) => {
     res.render('help', {
         title: 'Help Page',
-        helpTxt: 'Check out the resources if you need help.',
+        helpTxt: 'Just Enter A Location and Press Search. It Will Fetch The Current Weather Details.',
         name: 'Shans121'
     })
 })
@@ -70,8 +70,8 @@ app.get('/weather', (req, res) => {
             }
             res.send({
                 forecast: forecastData,
-                location,  //Shorthand as property and value name are same location: location
-                address: req.query.address
+                location: "Result fetched for the following location: " +location,  //Shorthand as property and value name are same location: location
+                address: "<p>Address</p>"+ req.query.address
             })
         })
     } )
