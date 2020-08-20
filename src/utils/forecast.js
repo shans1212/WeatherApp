@@ -15,7 +15,8 @@ const foreCast = (lat, long, callback) => {
         }
         else{  
             //callback("Forecast for " + body.location.name + ", " + body.location.country + ", " + body.location.region + " is:" )
-            callback(undefined, body.current.weather_descriptions[0] + ". It is currently "+ body.current.temperature + " degrees out." + "It feels like " + body.current.feelslike + " degrees out.")
+            callback(undefined, body.current.weather_descriptions[0] + ". It is currently "+ body.current.temperature + " degrees out." + "It feels like " + body.current.feelslike + " degrees out." 
+            + "Humidity is " + body.current.humidity)
         }
     })
 }
